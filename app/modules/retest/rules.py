@@ -20,7 +20,7 @@ def adjudicate(rows,context):
             if len(winners)>1:issues.append({'id':row['id'],'code':'RETEST_VERSION_CONFLICT','parent':row['id']});winner=row
             else:winner=winners[0]
         else:winner=row
-        selected.append({'id':winner['id'],'subject':row['subject'],'visit':row['visit'],'primary_id':row['id'],'value_mg_dl':winner['value_mg_dl'],'revision':winner['revision'],'code':'RETEST_SELECTED' if winner is not row else 'PRIMARY_SELECTED'})
+        selected.append({'id':winner['id'],'subject':row['subject'],'visit':row['visit'],'primary_id':row['id'],'value':winner['value'],'unit':winner['unit'],'unit_confirmed':winner['unit_confirmed'],'unit_basis':winner['unit_basis'],'unit_evidence':winner['unit_evidence'],'value_mg_dl':winner['value_mg_dl'],'revision':winner['revision'],'code':'RETEST_SELECTED' if winner is not row else 'PRIMARY_SELECTED'})
     return selected,issues
 
 def apply(state):
